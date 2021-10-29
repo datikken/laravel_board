@@ -7,12 +7,12 @@ services:
         volumes:
             - ./:/var/www
         ports:
-            - "8080:80"
-        uses:
+            - "8080:443"
+        links:
             - php-fpm
     php-fpm:
         build:
-            context: /
+            context: ./
             dockerfile: docker/php-fpm.docker
         volumes:
             - ./:var/www
